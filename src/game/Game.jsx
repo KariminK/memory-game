@@ -1,7 +1,10 @@
 import Card from "../card/Card";
-const Game = ({ images }) => {
+import "./game.css";
+const Game = ({ images, onCardClick }) => {
   let cards = images.map((image, index) => {
-    return <Card image={image} key={index} />;
+    return (
+      <Card image={image} key={index} onCardClick={() => onCardClick(image)} />
+    );
   });
   return <div className="game">{...cards}</div>;
 };

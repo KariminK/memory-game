@@ -1,0 +1,6 @@
+.game {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  padding: 10px;
+}
