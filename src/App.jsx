@@ -1,43 +1,62 @@
 import { useState, useEffect } from "react";
 import Game from "./game/Game";
 import Scoreboard from "./scoreboard/Scoreboard";
+import EndScreen from "./endScreen/EndScreen";
 function App() {
   const [images, setImages] = useState([]);
   const [score, setScore] = useState(0);
   const [highestScore, setHighestScore] = useState(0);
   const [clickedCards, setClickedCards] = useState([]);
-  const fetchImages = async () => {
-    let response = await fetch(`http://shibe.online/api/shibes?count=10`);
+  const [lose, setLose] = useState(false);
+  const [win, setWin] = useState(false);
+  const [difficulty, setDifficulty] = useState(10);
+  const fetchImages = async (amount) => {
+    let response = await fetch(
+      `http://shibe.online/api/shibes?count=${amount}`
+    );
     let data = await response.json();
     return data;
   };
-  const shuffleArray = (...array) => {
-    return array.sort((a, b) => 0, 5 - Math.random());
-  };
+  useEffect(() => {
+    fetchImages(difficulty).then((data) => {
+      setImages([...data]);
+    });
+    return () => {
+      setImages([]);
+    };
+  }, [difficulty]);
+
   const cardClickHandler = (image) => {
-    console.log(image);
     if (clickedCards.includes(image)) {
-      console.log("card was clicked");
-      setScore(0);
+      setLose(true);
     } else {
       setClickedCards([...clickedCards, image]);
+      if (clickedCards.length === images.length && clickedCards.length != 0) {
+        setWin(true);
+      }
       let newImages = [...images];
       newImages.sort((a, b) => 0.5 - Math.random());
       setImages(newImages);
       setScore(score + 1);
       if (score == highestScore) setHighestScore(highestScore + 1);
-      console.log("card wasn't cliceked");
     }
   };
-  useEffect(() => {
-    fetchImages().then((data) => {
-      setImages([...data]);
-    });
-  }, []);
+  const loseGame = () => {
+    setScore(0);
+    setLose(false);
+    setWin(false);
+    setClickedCards([]);
+  };
   return (
     <>
       <Scoreboard score={score} highestScore={highestScore} />
       <Game images={images} onCardClick={cardClickHandler} />
+      <EndScreen
+        lost={lose}
+        won={win}
+        onPlayAgainClick={loseGame}
+        score={score}
+      />
     </>
   );
 }
