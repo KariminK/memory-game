@@ -1,0 +1,25 @@
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  width: 80%;
+  min-width: 400px;
+  margin-inline: auto;
+  color: white;
+  font-size: 28px;
+  --animation-speed: 720deg;
+}
+.scoreboard img {
+  height: 100px;
+  animation: spinanimation 10s infinite linear;
+  border-radius: 50px;
+}
+@keyframes spinanimation {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
