@@ -1,5 +1,5 @@
 import "./endscreen.css";
-const EndScreen = ({ lost, won, score, onPlayAgainClick }) => {
+const EndScreen = ({ lost, won, score, onPlayAgainClick, onRestartClick }) => {
   if (lost) {
     return (
       <div className="endScreen">
@@ -16,7 +16,10 @@ const EndScreen = ({ lost, won, score, onPlayAgainClick }) => {
         <h1>*Wow* You have won! You're god in memorizing shibes</h1>
         <h2>Your score was: {score}</h2>
         <button id="playAgainBtn" onClick={() => onPlayAgainClick(true)}>
-          Play again?
+          Play more
+        </button>
+        <button id="restartBtn" onClick={onRestartClick}>
+          Restart
         </button>
       </div>
     );

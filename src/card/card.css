@@ -1,8 +1,5 @@
 .card {
-  min-width: 300px;
-  max-width: 500px;
   flex-basis: calc(20% - 10px);
-  flex-grow: 1;
   aspect-ratio: 1/1;
   display: flex;
   justify-content: center;

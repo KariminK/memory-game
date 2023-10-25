@@ -18,12 +18,15 @@ function App() {
     return data;
   };
   useEffect(() => {
-    fetchImages(difficulty).then((data) => {
-      setImages([...data]);
-    });
+    if (!lose || !win) {
+      fetchImages(difficulty).then((data) => {
+        setImages([...data]);
+      });
+    }
   }, [lose, win]);
 
   const cardClickHandler = (image) => {
+    if (lose || win) return;
     if (clickedCards.includes(image)) {
       setLose(true);
     } else {
@@ -40,9 +43,18 @@ function App() {
       if (score == highestScore) setHighestScore(highestScore + 1);
     }
   };
+  const restart = () => {
+    setDifficulty(5);
+    setScore(0);
+    setLose(false);
+    setWin(false);
+    setClickedCards([]);
+  };
   const endGame = (won) => {
     if (won) {
       setDifficulty(difficulty + 5);
+    } else {
+      setDifficulty(5);
     }
     setScore(0);
     setLose(false);
@@ -61,6 +73,7 @@ function App() {
         lost={lose}
         won={win}
         onPlayAgainClick={endGame}
+        onRestartClick={restart}
         score={score}
       />
     </>
