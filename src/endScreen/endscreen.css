@@ -39,7 +39,22 @@
   border-radius: 33px;
   transition: background-color 200ms;
   cursor: pointer;
+  margin: 20px;
 }
 button:hover {
   background-color: rgb(233, 171, 91);
+}
+@media screen and (max-width: 768px) {
+  .winScreen h1 {
+    font-size: 32px;
+  }
+  .winScreen h2 {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .endScreen {
+    min-width: 95%;
+    height: 70%;
+  }
 }
