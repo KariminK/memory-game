@@ -60,6 +60,7 @@ function App() {
     setScore(0);
     setLose(false);
     setWin(false);
+    setGameStarted(false);
     setClickedCards([]);
   };
   const endGame = (won) => {
