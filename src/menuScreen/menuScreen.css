@@ -1,0 +1,36 @@
+.menuScreen {
+  color: white;
+  text-align: center;
+}
+.menuScreen h1 {
+  font-size: 72px;
+  text-shadow: 0px 0px 5px black;
+}
+.title {
+  position: relative;
+}
+@keyframes spin {
+  0% {
+    rotate: 0deg;
+    left: -250px;
+  }
+  100% {
+    rotate: 360deg;
+    left: 100%;
+  }
+}
+.logo {
+  animation: spin 3s infinite linear alternate-reverse;
+  width: 300px;
+  position: absolute;
+}
+/* .menuScreen p {
+  position: absolute;
+  left: 62%;
+  top: 50px;
+  color: yellow;
+  text-shadow: 0px 0px 10px black;
+  font-size: 24px;
+  font-weight: bold;
+  rotate: -30deg;
+} */
