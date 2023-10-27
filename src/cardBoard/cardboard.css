@@ -1,0 +1,8 @@
+.game {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1vw;
+  background-color: rgb(201, 137, 55);
+}
