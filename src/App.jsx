@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import Game from "./game/Game";
 import Scoreboard from "./scoreboard/Scoreboard";
 import EndScreen from "./endScreen/EndScreen";
+import Cardboard from "./cardBoard/cardboard";
 function App() {
   const [images, setImages] = useState([]);
   const [score, setScore] = useState(0);
@@ -9,6 +9,7 @@ function App() {
   const [clickedCards, setClickedCards] = useState([]);
   const [lose, setLose] = useState(false);
   const [win, setWin] = useState(false);
+  const [gameStarted, setGameStarted] = useState(false);
   const [difficulty, setDifficulty] = useState(5);
   const fetchImages = async (amount) => {
     let response = await fetch(
@@ -32,8 +33,6 @@ function App() {
     } else {
       setClickedCards([...clickedCards, image]);
       setScore(score + 1);
-      console.log(score);
-      console.log(difficulty);
       if (score + 1 === difficulty) {
         setWin(true);
       }
@@ -68,7 +67,7 @@ function App() {
         highestScore={highestScore}
         level={difficulty}
       />
-      <Game images={images} onCardClick={cardClickHandler} />
+      <Cardboard images={images} onCardClick={cardClickHandler} />
       <EndScreen
         lost={lose}
         won={win}
