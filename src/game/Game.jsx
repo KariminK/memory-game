@@ -1,6 +1,6 @@
 import Scoreboard from "../scoreboard/Scoreboard";
 import EndScreen from "../endScreen/EndScreen";
-import Cardboard from "../cardBoard/cardboard";
+import Cardboard from "../cardBoard/cardBoard";
 
 const Game = ({
   difficulty,
