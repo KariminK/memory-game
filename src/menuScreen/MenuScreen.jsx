@@ -1,4 +1,5 @@
 import "./menuScreen.css";
+import logo from "../assets/dogIcon.png";
 const MenuScreen = ({ diffSelectClickHandle }) => {
   return (
     <div className="menuScreen">
@@ -7,7 +8,7 @@ const MenuScreen = ({ diffSelectClickHandle }) => {
         <p>Don't click same card twice</p>
       </div>
       <div className="logo">
-        <img src="src/assets/dogIcon.png" alt="doge" />
+        <img src={logo} alt="doge" />
       </div>
       <h2>Choose difficulty: </h2>
       <div className="Options">

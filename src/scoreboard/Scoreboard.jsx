@@ -1,4 +1,5 @@
 import "./scoreboard.css";
+import logo from "../assets/dogIcon.png";
 const Scoreboard = ({ score, highestScore, level }) => {
   let difficulty = "easy";
   switch (level) {
@@ -23,7 +24,7 @@ const Scoreboard = ({ score, highestScore, level }) => {
         <h2 className="currentScore">Score: {score}</h2>
         <h2 className="level">Level: {difficulty}</h2>
       </div>
-      <img src="src/assets/dogIcon.png" alt="Doge" />
+      <img src={logo} alt="Doge" />
       <h2 className="highestScore">Highest score: {highestScore}</h2>
     </div>
   );
