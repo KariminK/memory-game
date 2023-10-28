@@ -55,3 +55,29 @@
   background-color: rgb(233, 171, 91);
   border-color: rgb(233, 171, 91);
 }
+@media screen and (max-width: 500px) {
+  .menuScreen h1 {
+    font-size: 56px;
+  }
+  .logo {
+    margin: 20px 0px;
+  }
+  .menuScreen h2 {
+    font-size: 36px;
+  }
+  .diffSelectButton {
+    padding: 5px;
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .menuScreen h1 {
+    font-size: 48px;
+  }
+  .menuScreen h2 {
+    font-size: 28px;
+  }
+  .diffSelectButton {
+    font-size: 18px;
+  }
+}
